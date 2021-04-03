@@ -1,0 +1,24 @@
+1. 이항계수 계산 : nCk = n!/k!(n-k)!
+D & C 중복된 값이 있으므로 -> iteration
+동적메모리
+int *N, n, k, result;
+scanf("%d %d", &n, &k);
+N = malloc(int, sizeof(*int)*n);
+N[0] = 1;
+for(i = 1; i < n; i++)
+	N[i] = N[i-1]*(i+1);
+result = N[n] / (N[k]*N[n-k]);
+printf("%d\n", result);
+
+
+2. C++ 정리
+- namespace :  자신만의 이름을 사용할 수 있는 공간
+namespace x { int a = 5;}
+namespace y { int a = 10;}
+int main() { std::cout << x::a + y::a;}
+//a가 2개가 있지만 "x::a"로 나타내어 x라고 하는 네임스페이스 내 존재하는 변수 a(5)를 의미, "y::a" => y네임스페이스 내 존재하는 변수 a(10) 의미 
+따라서 std:: => c++ 표준에서 정의한 이름공간 중 하나
+-> using namespace std; 선언하면 std:: 없어도됨!!
+- std::cout (= printf)	std::cin   (= scanf)
+  std::endl (= '\n')		
+'<<', '>>'를 사용하여 파일 생성 또는 데이터 읽는다
